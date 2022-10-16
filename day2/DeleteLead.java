@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class EditLead {
+public class DeleteLead {
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -46,24 +46,27 @@ public class EditLead {
 		//9. Click on leads 
 		driver.findElement(By.xpath("//a[@href='/crmsfa/control/leadsMain']")).click();	
 		
-		//10. Find Leads
-		driver.findElement(By.xpath("//a[@href='/crmsfa/control/findLeads']")).click();
+		//10. click on phone 
+		driver.findElement(By.xpath("//span[@id='ext-gen891']")).click();
 		
-		//11. Click on first resulting lead 
+		//11. Enter the Phone Number 
+		driver.findElement(By.xpath("//input[@id='ext-gen270']")).sendKeys("9176921919");
+		
+		//12. Find Leads
+		driver.findElement(By.xpath("//button[@id='ext-gen334']")).click();
+		
+		//13. Capture lead ID of first resulting lead 
 		driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a")).click();
 		
-		//12. Title of the webpage 
-		System.out.println("This is the title of the webpage: "+ driver.getTitle());
 		
-		//13. Click Edit
-		driver.findElement(By.xpath("//a[@href='updateLeadForm?partyId=10101']")).click();
+		//14. click delete 
+		driver.findElement(By.className("subMenuButtonDangerous")).click();
 		
-		//14. Change Company Name (clear)
-		driver.findElement(By.id("updateLeadForm_companyName")).clear();
-		driver.findElement(By.id("updateLeadForm_companyName")).sendKeys("Maruthi");
-					
-		//15. Click update 
-		driver.findElement(By.className("smallSubmit")).click();
+		//15. Verify the message 
+		WebElement Verify = driver.findElement(By.id("ext-gen437"));
+		Verify.getAttribute("div");
+		
+		
 		
 		
 		//16. Close the browser 
