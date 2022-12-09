@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="5">
+  <parameter name="browserName" value="chrome"/>
+  <parameter name="url" value="https://login.salesforce.com/?locale=in"/>
+  <test thread-count="5" name="SalesForceTest(failed)" verbose="5">
+    <classes>
+      <class name="cases.createLeadTest">
+        <methods>
+          <include name="am"/>
+          <include name="bm"/>
+          <include name="setData"/>
+          <include name="runCreateLead"/>
+        </methods>
+      </class> <!-- cases.createLeadTest -->
+    </classes>
+  </test> <!-- SalesForceTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
